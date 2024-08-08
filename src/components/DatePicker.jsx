@@ -43,7 +43,7 @@ const DatePicker = ({ label, selectedDate, onDateChange }) => {
   const years = Array.from({ length: 100 }, (_, i) => currentYear - i);
 
   return (
-    <div>
+    <div className = "date-picker">
       <label>{label}</label>
       <div>
         <select value={month} onChange={handleMonthChange}>

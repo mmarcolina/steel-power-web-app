@@ -20,10 +20,9 @@ const SteelDataForm = () => {
       WeekStatus: weekStatus,
       Day_of_week: dayOfWeek,
       Load_Type: loadType,
-      Operation: operations  // Send as an array
+      Operation: operations
     };
 
-    // Convert params to a query string
     const queryString = Object.keys(params)
       .map(key => {
         if (params[key] === null || params[key] === '' || (Array.isArray(params[key]) && params[key].length === 0)) {
@@ -51,7 +50,7 @@ const SteelDataForm = () => {
   };
 
   //   try {
-  //     const response = await axios.get('https://localhost:44358/api/energy', { params });
+  //     const response = await axios.get('https://localhost:44358/api/energy?', { params });
   //     console.log('Response: ', response.data);
   //     setResponseData(response.data);
   //   } catch (error) {
@@ -64,6 +63,14 @@ const SteelDataForm = () => {
     setOperations((prev) => 
       prev.includes(value) ? prev.filter((op) => op !== value) : [...prev, value]
     );
+  };
+
+  const formatResponseData = (data) => {
+    return Object.keys(data).map(key => (
+      <div key={key} className="response-item">
+        <strong>{key}:</strong> <span>{JSON.stringify(data[key])}</span>
+      </div>
+    ));
   };
 
   return (
@@ -167,9 +174,10 @@ const SteelDataForm = () => {
       </form>
 
       {responseData && (
-        <div>
-          <h3>Response Data:</h3>
-          <pre>{JSON.stringify(responseData, null, 2)}</pre>
+        <div className="response-data">
+          <h3>Results:</h3>
+          {formatResponseData(responseData)}
+          {/* <pre>{JSON.stringify(responseData, null, 2)}</pre> */}
         </div>
       )}
     </div>
