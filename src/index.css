@@ -108,17 +108,6 @@ button:disabled {
   color: #2c3e50;
 }
 
-.response-data pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  background-color: #f9f9f9;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  color: #555;
-}
-
 .response-data code {
   background-color: #f1f1f1;
   padding: 2px 4px;

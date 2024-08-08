@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 
 const DatePicker = ({ label, selectedDate, onDateChange }) => {
   const [month, setMonth] = useState(selectedDate ? new Date(selectedDate).getMonth() + 1 : '');
-  const [day, setDay] = useState(selectedDate ? new Date(selectedDate).getDate() : '');
+  const [day, setDay] = useState(selectedDate ? new Date(selectedDate).getDate() + 1 : '');
   const [year, setYear] = useState(selectedDate ? new Date(selectedDate).getFullYear() : '');
 
   useEffect(() => {
     if (selectedDate) {
       const date = new Date(selectedDate);
       setMonth(date.getMonth() + 1);
-      setDay(date.getDate());
+      setDay(date.getDate() + 1);
       setYear(date.getFullYear());
     }
   }, [selectedDate]);

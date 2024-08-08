@@ -49,8 +49,9 @@ const SteelDataForm = () => {
     }
   };
 
+  //parameters being formatted incorrectly by default, custom serialization implemented above
   //   try {
-  //     const response = await axios.get('https://localhost:44358/api/energy?', { params });
+  //     const response = await axios.get('https://localhost:44358/api/energy', { params });
   //     console.log('Response: ', response.data);
   //     setResponseData(response.data);
   //   } catch (error) {
@@ -177,7 +178,6 @@ const SteelDataForm = () => {
         <div className="response-data">
           <h3>Results:</h3>
           {formatResponseData(responseData)}
-          {/* <pre>{JSON.stringify(responseData, null, 2)}</pre> */}
         </div>
       )}
     </div>
